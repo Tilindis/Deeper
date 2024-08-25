@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Deeper</string>
+    <string name="login_image_content_description">Fish Deeper Logo</string>
+    <string name="login_label_email_or_username">Email or Username</string>
+    <string name="login_label_password">Password</string>
+    <string name="login_button_login_text">Login</string>
+    <string name="login_button_forgot_password_text">Forgot Password?</string>
 </resources>
