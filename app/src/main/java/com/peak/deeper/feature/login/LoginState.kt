@@ -1,6 +1,6 @@
 package com.peak.deeper.feature.login
 
 data class LoginState(
-    val email: String = "",
-    val password: String = "",
+    val email: String = "deeperangler@gmail.com", // <-- Add test data,
+    val password: String = "Deeper10899",         // <-- For faster checks.
 )

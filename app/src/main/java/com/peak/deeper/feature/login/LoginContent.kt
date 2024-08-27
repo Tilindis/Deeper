@@ -27,6 +27,7 @@ fun LoginContent(
     state: LoginState,
     onEmail: (String) -> Unit,
     onPassword: (String) -> Unit,
+    onLogin: () -> Unit,
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,7 +57,7 @@ fun LoginContent(
             value = state.password,
             onValueChange = { onPassword(it) },
             label = { Text(text = stringResource(id = R.string.login_label_password)) },
-            visualTransformation = PasswordVisualTransformation(),
+            visualTransformation = PasswordVisualTransformation(mask = '*'),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(4.dp)
@@ -65,7 +66,7 @@ fun LoginContent(
         Spacer(modifier = Modifier.height(4.dp))
 
         Button(
-            onClick = { /* Handle login logic */ },
+            onClick = { onLogin() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
