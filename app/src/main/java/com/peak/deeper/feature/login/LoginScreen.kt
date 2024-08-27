@@ -15,7 +15,8 @@ fun LoginScreen(
     LoginContent(
         state = state,
         onEmail = viewModel::updateEmail,
-        onPassword = viewModel::updatePassword
+        onPassword = viewModel::updatePassword,
+        onLogin = viewModel::onLogin
     )
 }
 
