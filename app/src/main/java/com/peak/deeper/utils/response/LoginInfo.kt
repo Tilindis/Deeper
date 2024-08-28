@@ -1,6 +1,7 @@
 package com.peak.deeper.utils.response
 
 import com.squareup.moshi.Json
+import java.time.LocalDateTime
 
 data class LoginInfo(
     @field:Json(name = "appId")
@@ -16,8 +17,8 @@ data class LoginInfo(
     val validated: Boolean? = null,
 
     @field:Json(name = "validTill")
-    val validTill: String? = null,
+    val validTill: LocalDateTime? = null,
 
     @field:Json(name = "registrationDate")
-    val registrationDate: String? = null,
+    val registrationDate: LocalDateTime? = null,
 )

@@ -2,6 +2,7 @@ package com.peak.deeper.utils.di
 
 import com.peak.deeper.utils.api.DeeperApi
 import com.peak.deeper.utils.constants.Constants
+import com.peak.deeper.utils.converter.network.NetworkConverters
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -59,6 +60,7 @@ class NetworkModule {
     fun providesMoshi(): Moshi {
         return Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
+            .add(NetworkConverters())
             .build()
     }
 }
