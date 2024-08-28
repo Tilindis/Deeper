@@ -1,6 +1,9 @@
 package com.peak.deeper.utils.di
 
+import android.app.Application
 import com.peak.deeper.utils.api.DeeperApi
+import com.peak.deeper.utils.dao.ScanDao
+import com.peak.deeper.utils.database.AppDataBase
 import com.peak.deeper.utils.interactor.LoginInteractor
 import com.peak.deeper.utils.interactor.LoginInteractorImpl
 import com.peak.deeper.utils.repository.LoginRepository
@@ -16,8 +19,20 @@ import javax.inject.Singleton
 class DataModule {
     @Singleton
     @Provides
-    fun provideLoginRepository(api: DeeperApi) : LoginRepository {
-        return LoginRepositoryImpl(api)
+    fun provideAppDatabase(app: Application): AppDataBase {
+        return AppDataBase.getInstance(app)
+    }
+
+    @Singleton
+    @Provides
+    fun provideScanDao(appDataBase: AppDataBase) : ScanDao {
+        return appDataBase.scanDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideLoginRepository(api: DeeperApi, scanDao: ScanDao) : LoginRepository {
+        return LoginRepositoryImpl(api, scanDao)
     }
 
     @Singleton

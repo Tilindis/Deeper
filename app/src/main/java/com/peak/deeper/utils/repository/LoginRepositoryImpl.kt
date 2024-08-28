@@ -2,11 +2,13 @@ package com.peak.deeper.utils.repository
 
 import android.util.Log
 import com.peak.deeper.utils.api.DeeperApi
+import com.peak.deeper.utils.dao.ScanDao
 import com.peak.deeper.utils.request.LoginRequest
 import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(
     private val api: DeeperApi,
+    private val scanDao: ScanDao,
 ) : LoginRepository {
     override suspend fun requestLogin(email: String, password: String) {
         runCatching {
@@ -14,9 +16,6 @@ class LoginRepositoryImpl @Inject constructor(
         }.map { loginResponse ->
             loginResponse?.let { response ->
                 val (login, user, scans, makara) = response
-                login?.let {
-                    Log.i("LoginRepository", "$it - Login Data")
-                }
                 user?.let {
                     Log.i("LoginRepository", "$it - User Data")
                 }
@@ -26,11 +25,16 @@ class LoginRepositoryImpl @Inject constructor(
                 makara?.let {
                     Log.i("LoginRepository", "$it - Makara Data")
                 }
-                response
+                login?.let {
+                    Log.i("LoginRepository", "$it - Login Data")
+                    response.scans?.map {
+                        scans -> scans.toScanEntity(it.userId)
+                    }
+                }
             }
-        }.onSuccess { response ->
-            response?.let {
-                Log.i("LoginRepository", "$it - onSuccess.")
+        }.onSuccess { scans ->
+            scans?.let {
+                scanDao.insertScans(it)
             }
         }.onFailure {
             Log.e("LoginRepository", "Deeper Api: ${it.message}")
