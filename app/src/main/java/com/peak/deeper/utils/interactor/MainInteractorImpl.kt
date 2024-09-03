@@ -1,5 +1,6 @@
 package com.peak.deeper.utils.interactor
 
+import com.peak.deeper.utils.domain.CoordinatesDomain
 import com.peak.deeper.utils.domain.ScanDomain
 import com.peak.deeper.utils.repository.MainRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,5 +17,9 @@ class MainInteractorImpl(
                 scan.copy(name = name)
             }
         }
+    }
+
+    override suspend fun getGeoData(scanIds: String, token: String): Flow<List<List<CoordinatesDomain>>?> {
+        return mainRepository.getGeoData(scanIds, token)
     }
 }
