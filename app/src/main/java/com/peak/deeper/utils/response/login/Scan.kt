@@ -1,4 +1,4 @@
-package com.peak.deeper.utils.response
+package com.peak.deeper.utils.response.login
 
 import com.peak.deeper.utils.entity.ScanEntity
 import com.squareup.moshi.Json

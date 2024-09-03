@@ -28,7 +28,15 @@ fun MainScreen(
         gesturesEnabled = drawerState.isOpen,
         drawerContent = {
             ModalDrawerSheet(drawerContainerColor = Color.Black) {
-                MainDrawerContent(state = state) {/* Add Callback */ }
+                MainDrawerContent(
+                    state = state,
+                    onScan = {
+                        viewModel.getPolygons(it)
+                        scope.launch {
+                            drawerState.apply { close() }
+                        }
+                    }
+                )
             }
         },
     ) {
