@@ -21,11 +21,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.google.android.gms.maps.model.LatLng
 import com.peak.deeper.R
 import com.peak.deeper.feature.main.MainState
 
 @Composable
-fun MainDrawerContent(state: MainState, onScan: (Int) -> Unit) {
+fun MainDrawerContent(state: MainState, onScan: (polygonsBox: Pair<Int, LatLng>) -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -40,11 +41,11 @@ fun MainDrawerContent(state: MainState, onScan: (Int) -> Unit) {
         )
 
         LazyColumn {
-            items(state.scans) { scan ->
+            items(state.scans) {  scan ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .clickable { onScan(scan.id) },
+                        .clickable { onScan(Pair(scan.id, LatLng(scan.lat, scan.lon))) },
                 ) {
                     Image( // Possible to use coil or glide to load images, but API returns nulls for url.
                         painter = painterResource(id = R.drawable.ic_logo_deeper),
