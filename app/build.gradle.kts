@@ -87,6 +87,9 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.core.splashscreen)
 
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.coroutines.test)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
