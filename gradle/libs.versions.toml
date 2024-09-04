@@ -25,6 +25,9 @@ mapsCompose = "2.11.4"
 playServicesLocation = "21.0.1"
 datastorePreferences = '1.1.1'
 coreSplashScreen = "1.0.1"
+robolectric = "4.12.1"
+coroutines-test = "1.8.0"
+mockwebserver = "4.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,6 +63,9 @@ maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = 
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashScreen" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-test" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
