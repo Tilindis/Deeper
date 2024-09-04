@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.maps.model.LatLng
 import com.peak.deeper.utils.datastore.DataStore
+import com.peak.deeper.utils.firebase.FirebaseAnalyticsService
 import com.peak.deeper.utils.interactor.MainInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,6 +17,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val mainInteractor: MainInteractor,
     private val dataStore: DataStore,
+    private val firebaseAnalyticsService: FirebaseAnalyticsService
 ) : ViewModel() {
     private val _state = MutableStateFlow(MainState())
     val state = _state.asStateFlow()
@@ -55,6 +57,9 @@ class MainViewModel @Inject constructor(
                         }
                     }
                 }
+            }
+            dataStore.getUserIdValue().collect { userId ->
+                firebaseAnalyticsService.onScanDisplayed(polygonsBox.first, userId)
             }
         }
     }

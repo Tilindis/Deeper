@@ -75,7 +75,9 @@ fun LoginContent(
         }
 
         TextButton(
-            onClick = { /* TODO add forgot password prompt */ }
+            onClick = {
+                throw RuntimeException("Test Crash") // Secret test crash :)
+            }
         ) {
             Text(text = stringResource(id = R.string.login_button_forgot_password_text))
         }
