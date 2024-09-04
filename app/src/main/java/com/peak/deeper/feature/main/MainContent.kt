@@ -36,7 +36,7 @@ fun MainContent(
     state.currentPolygonsLocation?.let { newLocation ->
         LaunchedEffect(newLocation) {
             cameraPositionState.animate(
-                update = CameraUpdateFactory.newLatLngZoom(newLocation, 20f),
+                update = CameraUpdateFactory.newLatLngZoom(newLocation, 18f), // new coordinates and zoom
                 durationMs = 1000
             )
         }

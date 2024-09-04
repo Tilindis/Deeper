@@ -20,10 +20,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.google.android.gms.maps.model.LatLng
 import com.peak.deeper.R
+import com.peak.deeper.feature.login.LoginScreen
 import com.peak.deeper.feature.main.MainState
+import com.peak.deeper.ui.theme.DeeperTheme
 
 @Composable
 fun MainDrawerContent(state: MainState, onScan: (polygonsBox: Pair<Int, LatLng>) -> Unit) {
@@ -41,7 +45,7 @@ fun MainDrawerContent(state: MainState, onScan: (polygonsBox: Pair<Int, LatLng>)
         )
 
         LazyColumn {
-            items(state.scans) {  scan ->
+            items(state.scans) { scan ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
@@ -79,5 +83,13 @@ fun MainDrawerContent(state: MainState, onScan: (polygonsBox: Pair<Int, LatLng>)
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewMainDrawer() {
+    DeeperTheme {
+        MainDrawerContent(MainState()) {}
     }
 }
