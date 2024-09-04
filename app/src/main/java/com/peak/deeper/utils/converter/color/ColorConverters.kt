@@ -11,7 +11,7 @@ class ColorConverters {
             in 10.0..value -> WaterDeep
             in value..0.0 -> Water
             else -> {
-                val normalizedValue = value / 10
+                val normalizedValue = value / 10 // Set value between 0..1
                 lerp(Water, WaterDeep, normalizedValue.toFloat())
             }
         }
