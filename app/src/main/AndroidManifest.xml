@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_logo_deeper"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Deeper"
+        android:theme="@style/DeeperSplashTheme"
         android:windowSoftInputMode="adjustResize"
         tools:targetApi="31">
         <meta-data
@@ -24,8 +24,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Deeper">
+            android:theme="@style/DeeperSplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
