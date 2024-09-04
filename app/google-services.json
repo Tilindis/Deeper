@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1074998534059",
+    "project_id": "deeperanalytics-dba1b",
+    "storage_bucket": "deeperanalytics-dba1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074998534059:android:74390d25775495b2f47cee",
+        "android_client_info": {
+          "package_name": "com.peak.deeper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUld1toRgHdofjcAhZJ9i5j-eA_FGjvmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

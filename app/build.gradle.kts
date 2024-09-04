@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.crashlytics)
 }
 
 android {
@@ -86,6 +88,10 @@ dependencies {
     implementation(libs.maps.compose)
     implementation(libs.datastore.preferences)
     implementation(libs.core.splashscreen)
+    implementation (platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.messaging)
 
     testImplementation(libs.mockwebserver)
     testImplementation(libs.robolectric)
