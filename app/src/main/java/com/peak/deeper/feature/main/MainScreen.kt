@@ -10,7 +10,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.peak.deeper.ui.theme.DeeperTheme
 import com.peak.deeper.utils.compose.MainDrawerContent
 import kotlinx.coroutines.launch
 
@@ -50,5 +52,13 @@ fun MainScreen(
                 }
             },
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewMainScreen() {
+    DeeperTheme {
+        MainScreen()
     }
 }
