@@ -48,6 +48,7 @@ class MainViewModel @Inject constructor(
                                     coordinates.toPolygonViewData()
                                 }
                             }
+
                             _state.update {
                                 state -> state.copy(
                                     polygonList = polygonList,
@@ -58,6 +59,7 @@ class MainViewModel @Inject constructor(
                     }
                 }
             }
+
             dataStore.getUserIdValue().collect { userId ->
                 firebaseAnalyticsService.onScanDisplayed(polygonsBox.first, userId)
             }
