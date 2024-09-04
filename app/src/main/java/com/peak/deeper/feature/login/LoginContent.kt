@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.peak.deeper.R
+import com.peak.deeper.utils.constants.Constants.PASSWORD_HIDE_CHAR
 
 @Composable
 fun LoginContent(
@@ -57,7 +58,7 @@ fun LoginContent(
             value = state.password,
             onValueChange = { onPassword(it) },
             label = { Text(text = stringResource(id = R.string.login_label_password)) },
-            visualTransformation = PasswordVisualTransformation(mask = '*'),
+            visualTransformation = PasswordVisualTransformation(mask = PASSWORD_HIDE_CHAR),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(4.dp)
